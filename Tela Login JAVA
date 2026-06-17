@@ -1,0 +1,52 @@
+import javax.swing.*;
+
+public class Tela_Login {
+
+	public static void main(String[] args) {
+		
+		JFrame janela = new JFrame("Tela de login");
+		janela.setSize(300, 200);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		janela.setLayout(null);
+		janela.setLocationRelativeTo(null);
+		
+		JLabel labelUsuario = new JLabel("Usuário");
+		labelUsuario.setBounds(20,20,80,25);
+		janela.add(labelUsuario);
+		
+		JTextField campoUsuario = new JTextField();
+		campoUsuario.setBounds(100, 20, 160, 25);
+		janela.add(campoUsuario);
+		
+		JLabel labelSenha = new JLabel("Senha:");
+		labelSenha.setBounds(20, 50, 80, 25);
+		janela.add(labelSenha);
+		
+		JPasswordField campoSenha = new JPasswordField();
+		campoSenha.setBounds(100, 50, 160, 25);
+		janela.add(campoSenha);
+		
+		JButton botaoLogin = new JButton("Entrar");
+		botaoLogin.setBounds(100, 90, 100, 25);
+		janela.add(botaoLogin);
+		
+		botaoLogin.addActionListener(e -> {
+			String usuario = campoUsuario.getText();
+            String senha = new String(campoSenha.getPassword());
+            
+            if (usuario.equals("admin") && senha.equals("123")) {
+            	JOptionPane.showMessageDialog(janela, "Login realizado com sucesso!");
+            	janela.dispose();
+            	new MenuInicial();
+            } else {
+            	JOptionPane.showMessageDialog(janela, "Usuario ou senha incorretos.");
+
+            }
+			
+			});
+		
+		janela.setVisible(true);
+
+	}
+
+}
